@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "release": "Public V3.0",
+  "release": "Public V3.1",
   "inputs": {
-    "index.html": "4c257331489c7f69c3ba8a5c98074df8e7474b0d6444562410cf452f7ed1793d",
-    "styles.css": "775f0fc28188995fc7033b3dac2e71d17af38fa7b9a3d061521dffd529320b4c",
+    "index.html": "33890a1a6562cad01e5c04ed68acb4c653c0c0775e2b57dd1b17796422cba030",
+    "styles.css": "9428e8551398b45e21c3cda8a22c420bdf5815d251def11a59a82fdb3cd7f7b3",
     "app.js": "24efcf233c15b0ededa482fff993a7123573fd8074fb07fceba6096020b2fb49"
   },
   "output": {
-    "index.html": "c0a50e4ea67e5e4b38defd79a310ea14806f507b3310f653c9a1ab32e12da992"
+    "index.html": "495131d9c0d1a43178b4f67e5283dfc33ffee098a5c25f9d8a429bbfa928fe7f"
   }
 }
