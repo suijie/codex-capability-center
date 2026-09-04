@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "release": "Public V2.0",
+  "inputs": {
+    "index.html": "675e89dfdce8a0d6622f5c67f7699ead35bb35563f4fddba1516ebb5b8098abf",
+    "styles.css": "535cc2e5f3b79cc44228bc20a5740f688e2af51066a026e9723aaa8e7388d3e0",
+    "app.js": "2cf9fc0764fab68f63cd44589695e0467ece11493e39f82795b2a8daec4a0518"
+  },
+  "output": {
+    "index.html": "74fde97f932ceda04de0d3f9f1419916143f01fff7f64e7736b4d539189bd1a5"
+  }
+}
