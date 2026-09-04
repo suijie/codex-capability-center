@@ -4,7 +4,7 @@
 
 这是一个本地优先的能力维护工具：发现变化，核对证据，由你决定，再验证真实结果。每个待办都回答四件事——为什么出现、系统建议什么、你能做什么、做完以后怎样确认。
 
-**[立即体验公开演示](https://suijie.github.io/codex-skill-atlas/)**
+**[立即体验公开演示](https://suijie.github.io/codex-capability-center/)**
 
 ![Codex 能力控制中心预览](preview.jpg)
 
@@ -65,7 +65,7 @@
 
 `index.html` 可直接打开或部署到 GitHub Pages，`manifest.json` 记录本次发布物的 SHA-256 摘要。
 
-如果这个项目帮你把 Codex 能力从“库存”变成“可判断、可维护、可验证”的系统，欢迎点一个 **Star**。发现描述过时、流程不清或关键场景缺失，也欢迎[提交 Issue](https://github.com/suijie/codex-skill-atlas/issues)。
+如果这个项目帮你把 Codex 能力从“库存”变成“可判断、可维护、可验证”的系统，欢迎点一个 **Star**。发现描述过时、流程不清或关键场景缺失，也欢迎[提交 Issue](https://github.com/suijie/codex-capability-center/issues)。
 
 ## License
 
