@@ -164,7 +164,7 @@ const tips = [
 
 const state = { route: "overview", maintenanceTab: "decide", removedSkills: new Set(), tipStates: new Map(tips.map((tip) => [tip.id, tip.state])) };
 const $ = (selector, root = document) => root.querySelector(selector);
-const $ = (selector, root = document) => [...root.querySelectorAll(selector)];
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const esc = (value) => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
 
 function icon(id) { return `<svg aria-hidden="true"><use href="#i-${id}"/></svg>`; }
@@ -185,8 +185,8 @@ function currentRouteFromHash() {
 function showRoute(route, options = {}) {
   const next = routes.includes(route) ? route : "overview";
   state.route = next;
-  $(".view").forEach((view) => view.classList.toggle("is-active", view.dataset.view === next));
-  $('[data-route-link]').forEach((link) => {
+  $$(".view").forEach((view) => view.classList.toggle("is-active", view.dataset.view === next));
+  $$('[data-route-link]').forEach((link) => {
     const active = link.dataset.routeLink === next;
     link.classList.toggle("is-active", active);
     if (active) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
@@ -206,7 +206,7 @@ function closeMobileNav() {
 function setMaintenanceTab(tab) {
   const next = ["decide", "discover", "method"].includes(tab) ? tab : "decide";
   state.maintenanceTab = next;
-  $('[data-maintenance-tab]').forEach((button) => button.setAttribute("aria-selected", String(button.dataset.maintenanceTab === next)));
+  $$('[data-maintenance-tab]').forEach((button) => button.setAttribute("aria-selected", String(button.dataset.maintenanceTab === next)));
   ["decide", "discover", "method"].forEach((key) => { $(`#maintenance-${key}`).hidden = key !== next; });
 }
 
@@ -313,7 +313,7 @@ function toggleInfo(open) {
 }
 
 function installStep(step) {
-  $(".stepper li").forEach((item, index) => item.classList.toggle("is-active", index <= step));
+  $$(".stepper li").forEach((item, index) => item.classList.toggle("is-active", index <= step));
 }
 
 function beginInstall() {
@@ -385,7 +385,7 @@ $("#approveSkill").addEventListener("click", beginInstall);
 $("#closeInstall").addEventListener("click", () => { $("#inlineInstall").hidden = true; });
 $("#confirmDemoInstall").addEventListener("click", completeDemoInstall);
 $("#inlineInstall").addEventListener("click", (event) => { if (event.target.closest("#finishDemoInstall")) { $("#inlineInstall").hidden = true; showToast("安装流程已完成，建议已进入处理记录"); } });
-$("#recommendationFilter").addEventListener("change", (event) => { $("#recommendationList [data-kind]").forEach((card) => { card.hidden = event.target.value !== "all" && card.dataset.kind !== event.target.value; }); });
+$("#recommendationFilter").addEventListener("change", (event) => { $$("#recommendationList [data-kind]").forEach((card) => { card.hidden = event.target.value !== "all" && card.dataset.kind !== event.target.value; }); });
 $("#openRuleReview").addEventListener("click", () => { $("#ruleReview").hidden = false; $("#openRuleReview").hidden = true; });
 $("#closeRuleReview").addEventListener("click", () => { $("#ruleReview").hidden = true; $("#openRuleReview").hidden = false; });
 $("#acceptRule").addEventListener("click", () => { $("#ruleReview").innerHTML = `<div class="last-check">${icon("check")}<span><strong>已完成复核</strong><small>演示未修改任何真实规则；结果已在当前页面保留。</small></span></div>`; showToast("规则复核已完成", "success"); });
