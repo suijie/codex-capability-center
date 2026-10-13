@@ -1,12 +1,90 @@
 {
-  "schemaVersion": 2,
-  "release": "Public V3.1",
+  "schemaVersion": 3,
+  "release": "Public V4.24.0",
+  "status": "published",
+  "product": {
+    "version": "4.24.0",
+    "build": "2026.10.12.01"
+  },
+  "demoBaseline": "4.24.0",
+  "featureScopePolicy": "explicit-subset-not-current-full-product",
+  "features": [
+    {
+      "id": "overview",
+      "label": "总览与导航",
+      "demoStatus": "simulated"
+    },
+    {
+      "id": "rule-review",
+      "label": "规则变化阅读与确认",
+      "demoStatus": "simulated"
+    },
+    {
+      "id": "skill-install",
+      "label": "推荐、安装进度与完成反馈",
+      "demoStatus": "simulated"
+    },
+    {
+      "id": "skill-library",
+      "label": "Skill 搜索、筛选和删除确认",
+      "demoStatus": "simulated"
+    },
+    {
+      "id": "tip-library",
+      "label": "技巧阅读与收藏",
+      "demoStatus": "simulated"
+    },
+    {
+      "id": "evidence-correction",
+      "label": "来源与方法绑定、旧证据降级",
+      "demoStatus": "not-demonstrated"
+    },
+    {
+      "id": "weekly-review",
+      "label": "真实双轨周复盘与问题关闭",
+      "demoStatus": "not-demonstrated"
+    },
+    {
+      "id": "history",
+      "label": "历史报告持久化与追溯",
+      "demoStatus": "not-demonstrated"
+    },
+    {
+      "id": "background-operations",
+      "label": "后台操作恢复、并发与中止",
+      "demoStatus": "not-demonstrated"
+    },
+    {
+      "id": "radar",
+      "label": "真实来源发现、轮换与安全依赖检查",
+      "demoStatus": "not-demonstrated"
+    },
+    {
+      "id": "runtime",
+      "label": "真实安装、删除、文件修改和本地启动",
+      "demoStatus": "not-demonstrated"
+    }
+  ],
+  "dataProvenance": "synthetic-public-fixtures-only",
+  "publicFiles": [
+    "LICENSE",
+    "README.md",
+    "index.html",
+    "manifest.json",
+    "preview.jpg"
+  ],
+  "imageReviewStatus": "approved",
+  "externalPublicationStatus": "published",
   "inputs": {
-    "index.html": "33890a1a6562cad01e5c04ed68acb4c653c0c0775e2b57dd1b17796422cba030",
-    "styles.css": "9428e8551398b45e21c3cda8a22c420bdf5815d251def11a59a82fdb3cd7f7b3",
-    "app.js": "24efcf233c15b0ededa482fff993a7123573fd8074fb07fceba6096020b2fb49"
+    "index.html": "c0bff65e24feb861fb8eadcb9c5e0017f97111ded5c6eebbfaa1f68a8d30100c",
+    "styles.css": "d0ed8c767a77b416619f26d0bd69a58cd7f8817c1d61258934b8c6952dbc3739",
+    "app.js": "7be1667c921a2f92f5f1952f3d8e1b84db02658ae33de1f537d09f4eb0de6d46",
+    "release-scope.json": "0c393da84804520ecb4d107189eb7ca9b2070c961651aeee9890885645759766"
   },
   "output": {
-    "index.html": "495131d9c0d1a43178b4f67e5283dfc33ffee098a5c25f9d8a429bbfa928fe7f"
+    "index.html": "1cd42d089d15b6fde2c81dc0fae90228e2ed0e801d09ba4aed775a98477fa704",
+    "README.md": "9428561bf1371dbd5ebbe23450c69060daa5716df1079a5e5b08a6495441acae",
+    "LICENSE": "319d40609fcc327b5fc76441a9395146b91c216b54bc6ceaa26908ff2ad5428e",
+    "preview.jpg": "dff023caaa28b11702828c7632eb274c3e12351459dff2818c26b6632cf14e84"
   }
 }

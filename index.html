@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; img-src data:; style-src 'sha256-lCjoVROYtF4hw82ooixCC99YFdJR3vEaWagv2zzX97M='; script-src 'sha256-JO/PIzwVsO3tpIL/+ZOnEjVz/YB0+wf866YJYCCy+0k='; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; font-src 'none'; media-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; img-src data:; style-src 'sha256-0O2Mdnp3tBZhnybQvWmljNf4gXwdYSWJNLjGlS28Nzk='; script-src 'sha256-e+FmfJIaL5L18ZUvPY4bhNsCZYrjPeH1N9CfTrDebUY='; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; font-src 'none'; media-src 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="description" content="Codex 能力控制中心：持续发现、判断、维护并验证规则、Skill 与 AI 技巧，让每个待办都有原因、建议、动作和结果。">
   <meta name="theme-color" content="#151922">
@@ -69,6 +69,26 @@ main{width:min(calc(100% - 48px),1100px);margin:0 auto;flex:1;padding:54px 0 90p
 .check-meter{margin:14px 0}.check-meter span{width:35%;transition:width .7s ease}.check-meter.is-complete span{width:100%}
 @media(min-width:781px){.stepper li{flex-direction:column;align-items:flex-start;gap:5px}.stepper li strong{padding-left:1px}.stepper li:not(:last-child):after{right:-2px}}
 @media(max-width:480px){.skill-filters>#skillStatusFilter,.skill-filters>#skillUsageFilter{display:none}.skill-filters:has(.filter-more[aria-expanded="true"])>#skillStatusFilter,.skill-filters:has(.filter-more[aria-expanded="true"])>#skillUsageFilter{display:block}}
+
+/* Visual system refresh: quiet, precise and task-first. */
+:root{--ink:#18202d;--muted:#5f6b7d;--quiet:#7b8798;--line:#dde2e9;--line-strong:#cbd2dc;--surface-warm:#fff;--canvas:#f5f6f8;--canvas-deep:#eceff3;--blue:#315fd6;--purple:#665bd1;--green:#14785f;--green-soft:#e9f6f0;--amber:#8a5916;--amber-soft:#fff3df;--red:#b43d38;--red-soft:#ffefed;--shadow:0 14px 34px rgba(27,36,54,.07);--shadow-soft:0 4px 14px rgba(27,36,54,.045);--radius:14px}
+.brand-mark{width:40px;height:40px;border-radius:12px;background:#5f63d6;box-shadow:0 8px 20px rgba(65,72,170,.24);font-size:20px}
+.topbar{height:60px;padding:8px 12px;border-color:rgba(207,214,224,.92);border-radius:14px;background:rgba(255,255,255,.92);box-shadow:0 10px 28px rgba(30,39,56,.07);backdrop-filter:blur(16px)}
+main{padding:44px 0 80px}.view{animation-duration:.22s;animation-timing-function:cubic-bezier(.32,.72,0,1)}
+.page-head{gap:28px;margin-bottom:26px}.page-head h1{margin:4px 0 6px;font-size:34px;line-height:1.15;letter-spacing:-.035em}.page-head p{font-size:14px}.eyebrow,.task-kicker{font-size:12px;letter-spacing:.08em;text-transform:none}.overview-head{margin-bottom:30px}.overview-head h1{font-size:40px}.overview-head p{font-size:15px;line-height:1.7}
+.panel{border-color:var(--line);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
+.btn{border-radius:10px;transition:border-color .2s cubic-bezier(.32,.72,0,1),background-color .2s cubic-bezier(.32,.72,0,1),transform .2s cubic-bezier(.32,.72,0,1)}
+.status-mark svg,.quality-mark svg{width:20px;height:20px}.quality-mark{border-radius:10px}
+.quality-meter span{width:var(--quality-progress,83.33%);background:var(--green);transition:width .42s cubic-bezier(.32,.72,0,1)}
+.quality-clear{margin:18px 23px 22px;padding:13px 15px;display:flex;align-items:center;gap:11px;border:1px solid #cfe7dc;border-radius:10px;background:#f6fbf8;color:var(--green)}.quality-clear>span{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:var(--green-soft)}.quality-clear svg{width:16px}.quality-clear strong,.quality-clear small{display:block}.quality-clear strong{font-size:13px}.quality-clear small{margin-top:3px;color:#4f6f63;font-size:12px}
+.skill-grid{gap:14px}.skill-card{min-height:246px;padding:20px;border-radius:14px;background:var(--surface);box-shadow:none;transition:border-color .2s cubic-bezier(.32,.72,0,1),transform .2s cubic-bezier(.32,.72,0,1),box-shadow .2s cubic-bezier(.32,.72,0,1)}.skill-card:hover{border-color:#b9c4d5;transform:translateY(-1px);box-shadow:var(--shadow-soft)}
+.skill-avatar{width:42px;height:42px;border-radius:10px}.skill-avatar svg{width:20px;height:20px}.skill-state{padding:6px 9px;border-radius:8px;font-size:11px;display:inline-flex;align-items:center;gap:5px}.skill-state svg{width:13px;height:13px}.skill-state.attention{background:var(--amber-soft);color:var(--amber)}
+.skill-card h2{margin-top:16px;font-size:19px}.skill-card code{margin-top:3px;color:#778397;font-size:11px}.skill-meta{border-radius:8px;font-size:12px}.skill-actions{margin-top:13px}.skill-actions .btn{min-height:40px}
+.state-pill.warning{background:var(--amber-soft);color:var(--amber)}
+.drawer-actions.check-complete-actions{padding-top:4px}
+@media(max-width:1040px){.page-head h1,.overview-head h1{font-size:34px}}
+@media(max-width:780px){main{padding-top:34px}.page-head h1,.overview-head h1{font-size:31px}.topbar{border-radius:13px}.quality-clear{margin:17px}}
+@media(max-width:480px){.panel{border-radius:13px}.quality-head{grid-template-columns:auto 1fr}.quality-head .state-pill{grid-column:2}.quality-mark{margin:0}.skill-card{border-radius:12px}}
 </style>
 </head>
 <body>
@@ -90,6 +110,13 @@ main{width:min(calc(100% - 48px),1100px);margin:0 auto;flex:1;padding:54px 0 90p
     <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
     <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></symbol>
     <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 14h8l1-14M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19 8a8 8 0 1 0 1 6M19 8V4M19 8h-4"/></symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 8.5h17M7 6.5h.01M10 6.5h.01"/></symbol>
+    <symbol id="i-document" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h5M9 12h6M9 16h4"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9h17M9 9v11"/></symbol>
+    <symbol id="i-research" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.75"/><path d="m15 15 4.25 4.25M8 10.5h5M10.5 8v5"/></symbol>
+    <symbol id="i-slides" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M12 16v4M8 20h8M8 12l2.5-2.5 2 2L16 8"/></symbol>
+    <symbol id="i-prototype" viewBox="0 0 24 24"><path d="m12 3 8 9-8 9-8-9zM8.5 12h7M12 8.5v7"/></symbol>
   </svg>
 
   <div class="app-shell">
@@ -98,7 +125,7 @@ main{width:min(calc(100% - 48px),1100px);margin:0 auto;flex:1;padding:54px 0 90p
       <p class="nav-caption">核心工作</p>
       <nav class="nav-list" aria-label="主导航">
         <a href="#overview" data-route-link="overview"><svg><use href="#i-grid"/></svg><span>总览</span></a>
-        <a href="#maintenance" data-route-link="maintenance"><svg><use href="#i-spark"/></svg><span>维护中心</span><b class="nav-badge">2</b></a>
+        <a href="#maintenance" data-route-link="maintenance"><svg><use href="#i-spark"/></svg><span>维护中心</span><b class="nav-badge" id="maintenanceNavBadge">2</b></a>
         <a href="#rules" data-route-link="rules"><svg><use href="#i-file"/></svg><span>规则文件</span></a>
         <a href="#skills" data-route-link="skills"><svg><use href="#i-diamond"/></svg><span>Skill 能力库</span></a>
         <a href="#tips" data-route-link="tips"><svg><use href="#i-bulb"/></svg><span>AI 技巧</span><b class="nav-badge info">1</b></a>
@@ -110,40 +137,40 @@ main{width:min(calc(100% - 48px),1100px);margin:0 auto;flex:1;padding:54px 0 90p
 
     <div class="workspace">
       <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="打开导航" aria-expanded="false"><svg><use href="#i-menu"/></svg></button><button class="global-search" id="globalSearchButton"><svg><use href="#i-search"/></svg><span>搜索功能或直接前往…</span><kbd>⌘ K</kbd></button><a class="github-link" href="https://github.com/suijie/codex-capability-center" target="_blank" rel="noopener noreferrer" aria-label="打开 GitHub 仓库"><span>GitHub</span><svg><use href="#i-external"/></svg></a></header>
-      <main id="mainContent" tabindex="-1">
+      <main id="mainContent" tabindex="-1"><section class="panel" data-public-release-boundary aria-label="公开演示范围"><div class="panel-heading"><div><span>部分流程演示 · 虚构数据</span><h2>演示基线 V4.24.0</h2><p>本稿已对照本地 V4.24.0 的功能范围，未复现当前完整产品；数字、评分、安装与检查结果均为模拟。</p><details><summary>查看已演示与尚未演示的功能</summary><ul><li>总览与导航：模拟交互</li><li>规则变化阅读与确认：模拟交互</li><li>推荐、安装进度与完成反馈：模拟交互</li><li>Skill 搜索、筛选和删除确认：模拟交互</li><li>技巧阅读与收藏：模拟交互</li><li>来源与方法绑定、旧证据降级：尚未演示</li><li>真实双轨周复盘与问题关闭：尚未演示</li><li>历史报告持久化与追溯：尚未演示</li><li>后台操作恢复、并发与中止：尚未演示</li><li>真实来源发现、轮换与安全依赖检查：尚未演示</li><li>真实安装、删除、文件修改和本地启动：尚未演示</li></ul><p>当前为已发布的公开交互演示；预览图、发布账号、目标仓库和回退点已经核对。</p></details></div></div></section>
         <section class="view" id="view-overview" data-view="overview">
-          <div class="page-head overview-head"><div><span class="eyebrow">V4.22.5 · 质量结论</span><h1>让 Codex 的能力始终有据可查</h1><p>把分散的规则、Skill 和 AI 技巧放进一个本地控制中心：发现变化、判断价值、完成处理并留下可追溯结果。</p></div><div class="page-actions"><button class="btn btn-primary" data-route="maintenance">体验维护闭环 <svg><use href="#i-arrow"/></svg></button><a class="btn" href="https://github.com/suijie/codex-capability-center" target="_blank" rel="noopener noreferrer">在 GitHub 收藏</a></div></div>
-          <section class="task-panel panel" aria-labelledby="todayTitle"><div class="task-summary"><span class="task-kicker">当前任务</span><h2 id="todayTitle">有 2 项需要判断</h2><p>先处理会影响规则与能力判断的事项。</p></div><div class="task-list"><button data-route="rules"><span class="task-icon warning"><svg><use href="#i-file"/></svg></span><span><strong>复核一处规则变化</strong><small>变更内容已经标出，约 1 分钟</small></span><svg class="row-arrow"><use href="#i-arrow"/></svg></button><button data-route="maintenance"><span class="task-icon blue"><svg><use href="#i-spark"/></svg></span><span><strong>判断一条高质量建议</strong><small>已核对来源、热度和适用场景</small></span><svg class="row-arrow"><use href="#i-arrow"/></svg></button></div></section>
-          <section class="section-block" aria-labelledby="statusTitle"><div class="section-title"><div><span>能力状态</span><h2 id="statusTitle">真正需要持续维护的对象</h2></div><time datetime="2026-09-04">演示数据 · 9 月 4 日</time></div><div class="status-grid"><button class="status-card" data-route="rules"><span class="status-mark blue">规</span><span><small>规则有效</small><strong>1 / 2</strong><em>1 处变化待复核</em></span><svg><use href="#i-arrow"/></svg></button><button class="status-card" data-route="skills"><span class="status-mark purple">技</span><span><small>重点 Skill</small><strong>5 / 6</strong><em>1 项文件变化待检查</em></span><svg><use href="#i-arrow"/></svg></button></div></section>
-          <section class="attention panel" aria-labelledby="attentionTitle"><div class="panel-heading"><div><span>值得关注</span><h2 id="attentionTitle">经过证据筛选的建议</h2></div><button class="text-link" data-route="maintenance">查看全部 2 条 <svg><use href="#i-arrow"/></svg></button></div><article class="attention-card"><div class="recommendation-label"><span>建议补充</span><b>高可信</b></div><h3>视觉风格系统</h3><p>从参考素材提取颜色、字体、版式与图形语言，沉淀为可复用的视觉规范。</p><div class="evidence-chips"><span>55.7k 收藏</span><span>6.9k Forks</span><span>来源完整</span></div><button class="btn" data-route="maintenance">查看并决定</button></article></section>
+          <div class="page-head overview-head"><div><span class="eyebrow">V4.24.0 · 部分流程模拟</span><h1>让 Codex 的能力始终有据可查</h1><p>这是 V4.24.0 的公开交互演示：从发现变化到确认、安装与验证，每一步都给出清楚的下一步。</p></div><div class="page-actions"><button class="btn btn-primary" data-route="maintenance">体验维护流程 <svg><use href="#i-arrow"/></svg></button><a class="btn" href="https://github.com/suijie/codex-capability-center" target="_blank" rel="noopener noreferrer">查看 GitHub 项目</a></div></div>
+          <section class="task-panel panel" id="overviewTaskPanel" aria-labelledby="todayTitle"><div class="task-summary"><span class="task-kicker">当前任务</span><h2 id="todayTitle">有 2 项需要判断</h2><p id="todayHint">先处理会影响规则与能力判断的事项。</p></div><div class="task-list"><button id="overviewRuleTask" data-route="rules"><span class="task-icon warning"><svg><use href="#i-file"/></svg></span><span><strong>复核一处规则变化</strong><small>变更内容已经标出，约 1 分钟</small></span><svg class="row-arrow"><use href="#i-arrow"/></svg></button><button id="overviewSkillTask" data-route="maintenance"><span class="task-icon blue"><svg><use href="#i-spark"/></svg></span><span><strong>判断一条高质量建议</strong><small>已核对来源、热度和适用场景</small></span><svg class="row-arrow"><use href="#i-arrow"/></svg></button></div></section>
+          <section class="section-block" aria-labelledby="statusTitle"><div class="section-title"><div><span>能力状态</span><h2 id="statusTitle">真正需要持续维护的对象</h2></div><time datetime="2026-09-14">演示数据 · 9 月 14 日</time></div><div class="status-grid"><button class="status-card" id="overviewRuleStatus" data-route="rules"><span class="status-mark blue"><svg><use href="#i-file"/></svg></span><span><small>规则有效</small><strong>1 / 2</strong><em>1 处变化待复核</em></span><svg><use href="#i-arrow"/></svg></button><button class="status-card" id="overviewSkillStatus" data-route="skills"><span class="status-mark purple"><svg><use href="#i-diamond"/></svg></span><span><small>重点 Skill</small><strong>5 / 6</strong><em>1 项文件变化待检查</em></span><svg><use href="#i-arrow"/></svg></button></div></section>
+          <section class="attention panel" id="overviewRecommendation" aria-labelledby="attentionTitle"><div class="panel-heading"><div><span>值得关注</span><h2 id="attentionTitle">经过证据筛选的建议</h2></div><button class="text-link" id="overviewRecommendationCount" data-route="maintenance">查看全部 2 条 <svg><use href="#i-arrow"/></svg></button></div><article class="attention-card"><div class="recommendation-label"><span>建议补充</span><b>演示示例</b></div><h3>视觉风格系统</h3><p>从参考素材提取颜色、字体、版式与图形语言，沉淀为可复用的视觉规范。</p><div class="evidence-chips"><span>来源完整</span><span>结构通过检查</span><span>适合视觉设计</span></div><button class="btn" data-route="maintenance">查看并决定</button></article></section>
           <section class="principle-strip" aria-label="产品工作方式"><span>发现变化</span><i></i><span>核对证据</span><i></i><span>由你决定</span><i></i><span>验证结果</span></section>
         </section>
 
         <section class="view" id="view-maintenance" data-view="maintenance">
           <div class="page-head"><div><span class="eyebrow">集中判断</span><h1>维护中心</h1><p>只把有证据、需要你决定的事项放在这里，处理过程留在原卡片内完成。</p></div></div>
-          <div class="tabs" role="tablist" aria-label="维护中心内容"><button role="tab" aria-selected="true" data-maintenance-tab="decide">待我决定 <b>2</b></button><button role="tab" aria-selected="false" data-maintenance-tab="discover">发现与复盘</button><button role="tab" aria-selected="false" data-maintenance-tab="method">设置与方法</button></div>
+          <div class="tabs" role="tablist" aria-label="维护中心内容"><button role="tab" aria-selected="true" data-maintenance-tab="decide">待我决定 <b id="decisionCount">2</b></button><button role="tab" aria-selected="false" data-maintenance-tab="discover">发现与复盘</button><button role="tab" aria-selected="false" data-maintenance-tab="method">设置与方法</button></div>
           <div class="tab-panel" id="maintenance-decide"><div class="list-heading"><div><h2>建议决策与实施</h2><p>每条建议都包含价值、证据、风险和下一步。</p></div><select id="recommendationFilter" aria-label="筛选建议"><option value="all">全部建议</option><option value="skill">Skill 建议</option><option value="rule">规则建议</option></select></div><div class="recommendation-list" id="recommendationList">
-            <article class="recommendation-card" data-kind="skill" id="recommendation-visual"><div class="recommendation-aside"><span class="rec-type">建议补充</span><div class="score-ring"><strong>92</strong><small>可信度</small></div></div><div class="recommendation-main"><div class="recommendation-title"><div><span>Skill 候选</span><h2>视觉风格系统</h2><code>visual-style</code></div><span class="priority high">优先评估</span></div><section class="benefit"><strong>它能帮你什么</strong><p>把网站、视频或品牌手册中的视觉语言提取为颜色、字体、版式与图形规范，减少设计与实现之间的偏差。</p></section><div class="evidence-grid"><span><small>仓库作者</small><strong>@calesthio</strong><em>身份可核验</em></span><span><small>GitHub 收藏</small><strong>55,749</strong><em>公开热度</em></span><span><small>Forks</small><strong>6,963</strong><em>协作采用</em></span><span><small>最近维护</small><strong>持续维护</strong><em>近 30 天有更新</em></span></div><details class="evidence-details"><summary>查看适用场景、证据与风险</summary><div><p><strong>适合：</strong>产品界面、品牌页面、演示文稿需要统一视觉语言时。</p><p><strong>风险：</strong>会读取你明确提供的参考素材；生成结果仍需人工检查版权和品牌边界。</p><p><strong>通过原因：</strong>真实能力文件、完整引用、脚本检查通过，与当前能力库不重名。</p></div></details><div class="recommendation-actions"><button class="btn btn-primary" id="approveSkill">批准并准备安装</button><button class="btn" data-ignore="recommendation-visual">暂不采用</button></div><section class="inline-install" id="inlineInstall" hidden aria-live="polite"><div class="install-head"><div><span>原地完成</span><h3>安装“视觉风格系统”</h3></div><button class="icon-button" id="closeInstall" aria-label="收起安装流程"><svg><use href="#i-x"/></svg></button></div><ol class="stepper"><li class="is-active"><span>1</span><strong>核对来源</strong></li><li><span>2</span><strong>确认安装</strong></li><li><span>3</span><strong>文件检查</strong></li><li><span>4</span><strong>完成</strong></li></ol><div class="install-stage" id="installStage"><div><small>安装范围</small><strong>个人能力库</strong></div><div><small>写入内容</small><strong>1 个 Skill · 4 个文件</strong></div><p>演示不会读取或修改你的设备。真实产品会在写入前再次确认目标和来源。</p><button class="btn btn-primary" id="confirmDemoInstall">确认安装</button></div></section></div></article>
+            <article class="recommendation-card" data-kind="skill" id="recommendation-visual"><div class="recommendation-aside"><span class="rec-type">建议补充</span><div class="score-ring"><strong>92</strong><small>演示质量分</small></div></div><div class="recommendation-main"><div class="recommendation-title"><div><span>Skill 候选 · 虚构数据</span><h2>视觉风格系统</h2><code>visual-style</code></div><span class="priority high">优先评估</span></div><section class="benefit"><strong>它能帮你什么</strong><p>把网站、视频或品牌手册中的视觉语言提取为颜色、字体、版式与图形规范，减少设计与实现之间的偏差。</p></section><div class="evidence-grid"><span><small>来源身份</small><strong>示例维护者</strong><em>演示占位</em></span><span><small>公开热度</small><strong>待重新核对</strong><em>不使用旧数字</em></span><span><small>结构检查</small><strong>通过</strong><em>演示结果</em></span><span><small>最近维护</small><strong>持续维护</strong><em>演示状态</em></span></div><details class="evidence-details"><summary>查看适用场景、证据与风险</summary><div><p><strong>适合：</strong>产品界面、品牌页面、演示文稿需要统一视觉语言时。</p><p><strong>风险：</strong>会读取你明确提供的参考素材；生成结果仍需人工检查版权和品牌边界。</p><p><strong>通过原因：</strong>示例能力文件、完整引用、脚本检查通过；真实来源和热度须在本地雷达中重新核对。</p></div></details><div class="recommendation-actions"><button class="btn btn-primary" id="approveSkill">批准并准备安装</button><button class="btn" data-ignore="recommendation-visual">暂不采用</button></div><section class="inline-install" id="inlineInstall" hidden aria-live="polite"><div class="install-head"><div><span>原地完成</span><h3>安装“视觉风格系统”</h3></div><button class="icon-button" id="closeInstall" aria-label="收起安装流程"><svg><use href="#i-x"/></svg></button></div><ol class="stepper"><li class="is-active"><span>1</span><strong>核对来源</strong></li><li><span>2</span><strong>确认安装</strong></li><li><span>3</span><strong>文件检查</strong></li><li><span>4</span><strong>完成</strong></li></ol><div class="install-stage" id="installStage"><div><small>安装范围</small><strong>个人能力库</strong></div><div><small>写入内容</small><strong>1 个 Skill · 4 个文件</strong></div><p>演示不会读取或修改你的设备。真实产品会在写入前再次确认目标和来源。</p><button class="btn btn-primary" id="confirmDemoInstall">确认安装</button></div></section></div></article>
             <article class="recommendation-card compact" data-kind="rule" id="recommendation-rule"><div class="recommendation-aside"><span class="rec-type blue">规则建议</span><div class="score-ring small"><strong>3×</strong><small>重复出现</small></div></div><div class="recommendation-main"><div class="recommendation-title"><div><span>使用习惯提炼</span><h2>保留操作后的原页面位置</h2></div><span class="priority">建议评估</span></div><p>最近一周在 3 个任务中重复出现“操作后不要跳页”的反馈，现有规则尚未明确覆盖。</p><details class="evidence-details"><summary>查看为什么值得长期保留</summary><div><p>只纳入重复模式，不把单次偏好写成长期规则；建议内容会先形成草稿，由你复核后才生效。</p></div></details><div class="recommendation-actions"><button class="btn" data-route="rules">查看规则草稿</button><button class="btn" data-ignore="recommendation-rule">稍后处理</button></div></div></article>
-          </div></div>
-          <div class="tab-panel" id="maintenance-discover" hidden><div class="timeline panel"><div class="panel-heading"><div><span>最近结果</span><h2>每次扫描都能追溯</h2></div></div><article><span class="result-icon success"><svg><use href="#i-check"/></svg></span><div><strong>GitHub Skill 雷达</strong><p>检查 28 个仓库，2 项通过质量门槛。</p><time>今天 09:20</time></div><button class="btn" data-maintenance-tab-jump="decide">查看 2 条建议</button></article><article><span class="result-icon"><svg><use href="#i-bulb"/></svg></span><div><strong>AI 技巧扫描</strong><p>发现 1 条新的高质量方法，已进入技巧库。</p><time>今天 09:16</time></div><button class="btn" data-route="tips">查看新技巧</button></article><article><span class="result-icon success"><svg><use href="#i-check"/></svg></span><div><strong>每周使用复盘</strong><p>识别 1 个重复模式，没有建议修改长期规则。</p><time>周一 08:30</time></div><button class="btn" data-maintenance-tab-jump="method">查看判断方法</button></article></div></div>
+          </div><div class="empty-state" id="decisionEmpty" role="status" hidden><span><svg><use href="#i-check"/></svg></span><h2>当前没有待决定事项</h2><p>完成和忽略的内容已移入“发现与复盘”，不会继续占用待办。</p><button class="btn" data-maintenance-tab-jump="discover">查看处理记录</button></div></div>
+          <div class="tab-panel" id="maintenance-discover" hidden><div class="timeline panel"><div class="panel-heading"><div><span>最近结果</span><h2>每次扫描都能追溯</h2></div></div><div id="completionTimeline"></div><article><span class="result-icon success"><svg><use href="#i-check"/></svg></span><div><strong>GitHub Skill 雷达</strong><p>检查 28 个仓库，2 项通过质量门槛。</p><time>今天 09:20</time></div><button class="btn" data-maintenance-tab-jump="decide">查看待办</button></article><article><span class="result-icon"><svg><use href="#i-bulb"/></svg></span><div><strong>AI 技巧扫描</strong><p>发现 1 条新的高质量方法，已进入技巧库。</p><time>今天 09:16</time></div><button class="btn" data-route="tips">查看新技巧</button></article><article><span class="result-icon success"><svg><use href="#i-check"/></svg></span><div><strong>每周使用复盘</strong><p>识别 1 个重复模式，没有建议修改长期规则。</p><time>周一 08:30</time></div><button class="btn" data-maintenance-tab-jump="method">查看判断方法</button></article></div></div>
           <div class="tab-panel" id="maintenance-method" hidden>
             <section class="recommendation-quality panel" aria-labelledby="publicQualityTitle">
-              <header class="recommendation-quality-head"><span class="quality-verdict-icon"><svg><use href="#i-check"/></svg></span><div><span>推荐质量</span><h2 id="publicQualityTitle">当前推荐可以作为判断依据</h2><p>基础测试已通过，真实使用反馈仍在积累。</p></div><b>可以参考</b></header>
+              <header class="recommendation-quality-head"><span class="quality-verdict-icon"><svg><use href="#i-info"/></svg></span><div><span>推荐质量说明示例</span><h2 id="publicQualityTitle">以下为模拟状态，不代表实际质量</h2><p>实际产品分别记录检查依据、待核对事项和真实任务效果。</p></div><b>演示数据</b></header>
               <div class="quality-answers" role="list" aria-label="推荐质量结论、证据缺口和下一步">
-                <article role="listitem"><span class="answer-icon good"><svg><use href="#i-check"/></svg></span><div><small>能不能信</small><strong>基础测试全部通过</strong><p>Skill、规则和 AI 技巧等 20 / 20 项判断符合预期。</p></div></article>
-                <article role="listitem"><span class="answer-icon watch"><svg><use href="#i-info"/></svg></span><div><small>还缺什么</small><strong>真实反馈仍在积累</strong><p>Skill 2 / 20 · 规则 0 / 20 · 技巧 5 / 20，不影响当前使用。</p></div></article>
+                <article role="listitem"><span class="answer-icon good"><svg><use href="#i-info"/></svg></span><div><small>能不能信</small><strong>演示不会验证推荐质量</strong><p>这里的评分与测试数字为模拟值，不能证明方法有效。</p></div></article>
+                <article role="listitem"><span class="answer-icon watch"><svg><use href="#i-info"/></svg></span><div><small>还缺什么</small><strong>实际任务结果尚未验证</strong><p>批准、收藏和自标掌握只表达选择，不能算效果证据。</p></div></article>
                 <article role="listitem"><span class="answer-icon good"><svg><use href="#i-check"/></svg></span><div><small>我要做什么</small><strong>无需立即处理</strong><p>正常使用并判断建议即可，系统会继续积累反馈。</p></div></article>
               </div>
-              <details class="quality-proof"><summary>查看完整质量证明</summary><div class="quality-proof-body"><div class="quality-funnel" aria-label="三类推荐从发现到采用的演示数据"><div><strong>Skill</strong><span><small>发现</small><b>28</b></span><span><small>安全合格</small><b>8</b></span><span><small>精选</small><b>2</b></span><span><small>已决定</small><b>1</b></span><span><small>已采用</small><b>1</b></span></div><div><strong>规则</strong><span><small>观察</small><b>7</b></span><span><small>重复出现</small><b>2</b></span><span><small>建议评估</small><b>1</b></span><span><small>已决定</small><b>1</b></span><span><small>已采纳</small><b>1</b></span></div><div><strong>AI 技巧</strong><span><small>发现</small><b>16</b></span><span><small>资料入库</small><b>6</b></span><span><small>新增推荐</small><b>1</b></span><span><small>已收藏</small><b>1</b></span><span><small>已掌握</small><b>0</b></span></div></div><div class="quality-proof-note"><p><strong>怎么判断：</strong>Skill、规则和 AI 技巧分别测试，不混用热度、重复次数或来源数量作为统一分数。</p><p><strong>反馈边界：</strong>每类真实反馈达到 20 条前，系统不会自动改变推荐规则，也不会要求用户补齐样本。</p></div></div></details>
+              <details class="quality-proof"><summary>查看完整质量证明</summary><div class="quality-proof-body"><div class="quality-funnel" aria-label="三类推荐从发现到采用的演示数据"><div><strong>Skill</strong><span><small>发现</small><b>28</b></span><span><small>安全合格</small><b>8</b></span><span><small>精选</small><b>2</b></span><span><small>已决定</small><b>1</b></span><span><small>已采用</small><b>1</b></span></div><div><strong>规则</strong><span><small>观察</small><b>7</b></span><span><small>重复出现</small><b>2</b></span><span><small>建议评估</small><b>1</b></span><span><small>已决定</small><b>1</b></span><span><small>已采纳</small><b>1</b></span></div><div><strong>AI 技巧</strong><span><small>发现</small><b>16</b></span><span><small>资料入库</small><b>6</b></span><span><small>新增推荐</small><b>1</b></span><span><small>已收藏</small><b>1</b></span><span><small>已掌握</small><b>0</b></span></div></div><div class="quality-proof-note"><p><strong>怎么判断：</strong>Skill、规则和 AI 技巧应分别验证，热度、重复次数或来源数量不代表实际效果。</p><p><strong>演示边界：</strong>以上数字全部虚构；批准、收藏与标记掌握不算效果验证。本页没有展示真实反馈或自动学习。</p></div></div></details>
             </section>
             <div class="method-grid"><article class="panel"><span class="method-number">01</span><h2>先发现，不自动实施</h2><p>扫描只生成候选，规则和 Skill 的修改始终由用户决定。</p></article><article class="panel"><span class="method-number">02</span><h2>证据不足，不凑推荐</h2><p>来源、时效、示例、安全和适用范围缺一不可，允许本周没有新发现。</p></article><article class="panel"><span class="method-number">03</span><h2>结果绑定当前版本</h2><p>文件变化后旧检查自动失效，避免用过去的结果证明现在可用。</p></article></div>
           </div>
         </section>
 
-        <section class="view" id="view-rules" data-view="rules"><div class="page-head"><div><span class="eyebrow">规则可读、变化可见</span><h1>规则文件</h1><p>直接标出需要复核的内容，说明影响，再由你决定保留或调整。</p></div></div><div class="rule-list"><article class="rule-card panel" id="rule-global"><div class="rule-summary"><span class="rule-mark">全</span><div><span>全局规则</span><h2>协作方式与安全边界</h2><p>适用于所有 Codex 任务</p></div><span class="state-pill warning">1 处待复核</span></div><button class="review-button" id="openRuleReview"><span><strong>查看需要复核的内容</strong><small>新增 1 条规则 · 预计 1 分钟</small></span><svg><use href="#i-arrow"/></svg></button><section class="rule-review" id="ruleReview" hidden aria-live="polite"><div class="review-context"><span>为什么出现</span><p>最近一周，“操作后保留原页面位置”在 3 个任务中重复出现，现有规则没有覆盖。</p></div><div class="diff-block"><div class="diff-head"><span>建议新增</span><small>交互反馈</small></div><p><mark>完成局部操作后，应保留用户当前页面与滚动位置；只有用户明确选择跨页面入口时才切换页面。</mark></p></div><div class="review-advice"><strong>系统建议</strong><p>这是稳定、可复用的交互偏好，建议加入项目规则；它不会扩大权限或改变安全边界。</p></div><div class="review-actions"><button class="btn btn-primary" id="acceptRule">确认保留</button><button class="btn" id="adjustRule">需要调整</button><button class="text-link" id="closeRuleReview">暂不处理</button></div></section></article><article class="rule-card panel"><div class="rule-summary"><span class="rule-mark project">项</span><div><span>项目规则</span><h2>能力控制中心产品规范</h2><p>只适用于当前项目</p></div><span class="state-pill success">已复核</span></div><div class="last-check"><svg><use href="#i-check"/></svg><span><strong>当前版本已确认</strong><small>下次在内容变化时重新提醒</small></span></div></article></div></section>
+        <section class="view" id="view-rules" data-view="rules"><div class="page-head"><div><span class="eyebrow">规则可读、变化可见</span><h1>规则文件</h1><p>直接标出需要复核的内容，说明影响，再由你决定保留或调整。</p></div></div><div class="rule-list"><article class="rule-card panel" id="rule-global"><div class="rule-summary"><span class="rule-mark">全</span><div><span>全局规则</span><h2>协作方式与安全边界</h2><p>适用于所有 Codex 任务</p></div><span class="state-pill warning" id="globalRuleState">1 处待复核</span></div><button class="review-button" id="openRuleReview"><span><strong>查看需要复核的内容</strong><small>新增 1 条规则 · 预计 1 分钟</small></span><svg><use href="#i-arrow"/></svg></button><section class="rule-review" id="ruleReview" hidden aria-live="polite"><div class="review-context"><span>为什么出现</span><p>最近一周，“操作后保留原页面位置”在 3 个任务中重复出现，现有规则没有覆盖。</p></div><div class="diff-block"><div class="diff-head"><span>建议新增</span><small>交互反馈</small></div><p><mark>完成局部操作后，应保留用户当前页面与滚动位置；只有用户明确选择跨页面入口时才切换页面。</mark></p></div><div class="review-advice"><strong>系统建议</strong><p>这是稳定、可复用的交互偏好，建议加入项目规则；它不会扩大权限或改变安全边界。</p></div><div class="review-actions"><button class="btn btn-primary" id="acceptRule">确认保留</button><button class="btn" id="adjustRule">需要调整</button><button class="text-link" id="closeRuleReview">暂不处理</button></div></section></article><article class="rule-card panel"><div class="rule-summary"><span class="rule-mark project">项</span><div><span>项目规则</span><h2>能力控制中心产品规范</h2><p>只适用于当前项目</p></div><span class="state-pill success">已复核</span></div><div class="last-check"><svg><use href="#i-check"/></svg><span><strong>当前版本已确认</strong><small>下次在内容变化时重新提醒</small></span></div></article></div></section>
 
-        <section class="view" id="view-skills" data-view="skills"><div class="page-head"><div><span class="eyebrow">知道有什么，更知道好不好</span><h1>Skill 能力库</h1><p>用中文说明每项能力，并结合文件完整性、实际试用和近期使用判断维护优先级。</p></div><button class="btn btn-primary" data-route="maintenance">查看推荐 Skill <svg><use href="#i-arrow"/></svg></button></div><section class="quality-panel panel"><div class="quality-head"><span class="quality-mark">质</span><div><span>整体质量体检</span><h2>6 项重点能力中，1 项需要处理</h2><p>说明完整 6 / 6 · 文件检查通过 5 / 6 · 实际效果按需验证</p></div><span class="state-pill warning">需要处理</span></div><div class="quality-meter" role="progressbar" aria-label="重点 Skill 文件检查通过率" aria-valuemin="0" aria-valuemax="6" aria-valuenow="5"><span></span></div><button class="quality-next" id="showQualityIssue"><span><strong>优先改善</strong><small>重新检查“浏览器控制”的文件变化</small></span><svg><use href="#i-arrow"/></svg></button></section><div class="skill-filters panel"><label><svg><use href="#i-search"/></svg><input id="skillSearch" type="search" placeholder="搜索 Skill 名称或用途" aria-label="搜索 Skill"></label><select id="skillStatusFilter" aria-label="按状态筛选"><option value="all">全部状态</option><option value="attention">需要处理</option><option value="healthy">状态正常</option></select><select id="skillUsageFilter" aria-label="按近 30 天使用情况筛选"><option value="all">全部使用情况</option><option value="used">近 30 天用过</option><option value="unused">近 30 天未使用</option></select><button class="btn filter-more" id="toggleMoreFilters" aria-expanded="false">更多筛选 <svg><use href="#i-chevron"/></svg></button><div class="more-filters" id="moreFilters" hidden><select id="skillTypeFilter" aria-label="按工作类型筛选"><option value="all">全部工作类型</option><option value="design">设计</option><option value="research">研究</option><option value="document">文档</option></select><button class="text-link" id="clearSkillFilters">清除筛选</button></div></div><p class="result-count" id="skillResultCount" aria-live="polite"></p><div class="skill-grid" id="publicSkillGrid"></div><div class="empty-state" id="skillEmpty" hidden><span><svg><use href="#i-search"/></svg></span><h2>没有匹配的 Skill</h2><p>换一个关键词或清除筛选。</p><button class="btn" id="resetSkillFilters">清除筛选</button></div></section>
+        <section class="view" id="view-skills" data-view="skills"><div class="page-head"><div><span class="eyebrow">知道有什么，更知道好不好</span><h1>Skill 能力库</h1><p>用中文说明每项能力，并结合文件完整性、实际试用和近期使用判断维护优先级。</p></div><button class="btn btn-primary" data-route="maintenance">查看推荐 Skill <svg><use href="#i-arrow"/></svg></button></div><section class="quality-panel panel" id="skillQualityPanel"><div class="quality-head"><span class="quality-mark"><svg><use href="#i-diamond"/></svg></span><div><span>整体质量体检</span><h2 id="skillQualityTitle">6 项重点能力中，1 项需要处理</h2><p id="skillQualitySummary">说明完整 6 / 6 · 文件检查通过 5 / 6 · 实际效果按需验证</p></div><span class="state-pill warning" id="skillQualityState">需要处理</span></div><div class="quality-meter" id="skillQualityMeter" role="progressbar" aria-label="重点 Skill 文件检查通过率" aria-valuemin="0" aria-valuemax="6" aria-valuenow="5"><span></span></div><button class="quality-next" id="showQualityIssue"><span><strong>优先改善</strong><small>重新检查“浏览器控制”的文件变化</small></span><svg><use href="#i-arrow"/></svg></button><div class="quality-clear" id="skillQualityClear" hidden><span><svg><use href="#i-check"/></svg></span><div><strong>重点 Skill 文件检查已全部通过</strong><small>以后只有文件再次变化时才会重新提醒。</small></div></div></section><div class="skill-filters panel"><label><svg><use href="#i-search"/></svg><input id="skillSearch" type="search" placeholder="搜索 Skill 名称或用途" aria-label="搜索 Skill"></label><select id="skillStatusFilter" aria-label="按状态筛选"><option value="all">全部状态</option><option value="attention">需要处理</option><option value="healthy">状态正常</option></select><select id="skillUsageFilter" aria-label="按近 30 天使用情况筛选"><option value="all">全部使用情况</option><option value="used">近 30 天用过</option><option value="unused">近 30 天未使用</option></select><button class="btn filter-more" id="toggleMoreFilters" aria-expanded="false">更多筛选 <svg><use href="#i-chevron"/></svg></button><div class="more-filters" id="moreFilters" hidden><select id="skillTypeFilter" aria-label="按工作类型筛选"><option value="all">全部工作类型</option><option value="design">设计</option><option value="research">研究</option><option value="document">文档</option></select><button class="text-link" id="clearSkillFilters">清除筛选</button></div></div><p class="result-count" id="skillResultCount" aria-live="polite"></p><div class="skill-grid" id="publicSkillGrid"></div><div class="empty-state" id="skillEmpty" hidden><span><svg><use href="#i-search"/></svg></span><h2>没有匹配的 Skill</h2><p>换一个关键词或清除筛选。</p><button class="btn" id="resetSkillFilters">清除筛选</button></div></section>
 
         <section class="view" id="view-tips" data-view="tips"><div class="page-head"><div><span class="eyebrow">按需浏览，不制造待办</span><h1>AI 技巧库</h1><p>只收录来源清楚、有实际示例、能转化为行动且没有被现有能力重复覆盖的方法。</p></div><button class="btn" data-maintenance-tab-route="discover">查看扫描记录</button></div><div class="tip-filters panel"><label><svg><use href="#i-search"/></svg><input id="tipSearch" type="search" placeholder="搜索方法或场景" aria-label="搜索 AI 技巧"></label><select id="tipTopicFilter" aria-label="按主题筛选"><option value="all">全部主题</option><option value="prompt">提问方式</option><option value="context">上下文</option><option value="review">验收纠错</option></select><select id="tipStateFilter" aria-label="按学习状态筛选"><option value="all">全部状态</option><option value="new">新发现</option><option value="saved">已收藏</option><option value="mastered">已掌握</option></select></div><p class="result-count" id="tipResultCount" aria-live="polite"></p><div class="tip-list" id="tipList"></div></section>
       </main>
@@ -152,18 +179,18 @@ main{width:min(calc(100% - 48px),1100px);margin:0 auto;flex:1;padding:54px 0 90p
   </div>
   <div class="command-layer" id="commandLayer" hidden><div class="command-dialog" role="dialog" aria-modal="true" aria-labelledby="commandTitle"><div class="command-search"><svg><use href="#i-search"/></svg><input id="commandInput" autocomplete="off" placeholder="搜索页面、功能或演示内容" aria-label="全局搜索"><kbd>Esc</kbd></div><div class="command-results"><span id="commandTitle">快速前往</span><div id="commandResults"></div></div></div></div>
   <aside class="detail-drawer" id="detailDrawer" aria-hidden="true" aria-labelledby="drawerTitle"><div class="drawer-head"><div><span id="drawerEyebrow">详情</span><h2 id="drawerTitle">—</h2></div><button class="icon-button" id="closeDrawer" aria-label="关闭详情"><svg><use href="#i-x"/></svg></button></div><div class="drawer-body" id="drawerBody"></div></aside><div class="drawer-scrim" id="drawerScrim" hidden></div>
-  <div class="modal-layer" id="infoModal" hidden><div class="info-dialog" role="dialog" aria-modal="true" aria-labelledby="infoTitle"><button class="icon-button" id="closeInfoModal" aria-label="关闭说明"><svg><use href="#i-x"/></svg></button><span class="eyebrow">公开演示</span><h2 id="infoTitle">体验真实结构，不接触你的设备</h2><p>本页面复现当前产品的信息架构、判断逻辑和关键交互。所有对象与数字均为脱敏演示数据；按钮只改变当前浏览器页面状态，不会读取本机规则、安装 Skill 或发出网络请求。</p><ul><li>完整产品在用户本机运行，数据默认只保存在本地。</li><li>扫描结果先进入建议，由用户批准后才进入实施步骤。</li><li>公开仓库不包含个人规则、真实使用记录或本机管理服务。</li></ul><button class="btn btn-primary" id="understandDemo">明白了，开始体验</button></div></div>
+  <div class="modal-layer" id="infoModal" hidden><div class="info-dialog" role="dialog" aria-modal="true" aria-labelledby="infoTitle"><button class="icon-button" id="closeInfoModal" aria-label="关闭说明"><svg><use href="#i-x"/></svg></button><span class="eyebrow">部分流程演示</span><h2 id="infoTitle">体验公开演示，不接触你的设备</h2><p>本页面基于 V4.24.0 的部分交互制作，不代表当前完整产品。所有对象、数字与检查结果均为纯虚构示例；按钮只改变当前浏览器页面状态，不会读取本机规则、安装 Skill 或发出网络请求。</p><ul><li>真实来源核验、历史追溯和后台任务恢复尚未在本页演示。</li><li>模拟安装成功不代表真实安装经过验证。</li><li>完整产品仍在本机运行，公开页面只展示安全的交互子集。</li></ul><button class="btn btn-primary" id="understandDemo">明白了，体验演示</button></div></div>
   <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
   <script>const routes = ["overview", "maintenance", "rules", "skills", "tips"];
 const routeLabels = { overview: "总览", maintenance: "维护中心", rules: "规则文件", skills: "Skill 能力库", tips: "AI 技巧" };
 
 const skills = [
-  { id: "browser-control", initials: "浏", name: "浏览器控制", tech: "browser-control", description: "在已有登录状态中打开页面、点击、输入并检查结果。", status: "attention", statusLabel: "文件变化待检查", usage: 17, type: "research", typeLabel: "研究", resources: "4 个配套文件", detail: "适合需要在真实网页中核对状态、执行连续操作或完成可见验收的任务。文件内容发生变化后，过去的检查记录会自动失效。" },
-  { id: "pdf", initials: "PD", name: "PDF 制作与校验", tech: "pdf", description: "读取、创建、填写并渲染校验 PDF，确保内容和版式可用。", status: "healthy", statusLabel: "文件检查通过", usage: 8, type: "document", typeLabel: "文档", resources: "3 个配套文件", detail: "适合需要生成、修改或视觉检查 PDF 的任务；交付前会把页面渲染成图片复核。" },
-  { id: "frontend", initials: "前", name: "前端界面工程", tech: "frontend-ui-engineering", description: "把界面方案实现为响应式、可访问、可交互的产品页面。", status: "healthy", statusLabel: "文件检查通过", usage: 12, type: "design", typeLabel: "设计", resources: "2 个配套文件", detail: "适合产品页面、组件和交互实现，强调响应式、键盘可用性和真实反馈。" },
-  { id: "research", initials: "研", name: "客户研究", tech: "customer-research", description: "整理访谈、评价和社区反馈，提炼用户问题与决策线索。", status: "healthy", statusLabel: "文件检查通过", usage: 5, type: "research", typeLabel: "研究", resources: "5 个配套文件", detail: "适合分析访谈记录、评论、支持工单或设计调研方案，不会把单条反馈直接当成普遍结论。" },
-  { id: "slides", initials: "演", name: "演示文稿制作", tech: "presentations", description: "创建、修改并逐页检查演示文稿，保证内容与视觉交付质量。", status: "healthy", statusLabel: "文件检查通过", usage: 3, type: "document", typeLabel: "文档", resources: "6 个配套文件", detail: "适合 PowerPoint 或 Slides 的内容、版式和视觉交付，并提供逐页渲染检查。" },
-  { id: "prototype", initials: "原", name: "交互原型验证", tech: "prototype", description: "用可点击原型快速验证页面结构、状态和关键操作是否合理。", status: "healthy", statusLabel: "文件检查通过", usage: 0, type: "design", typeLabel: "设计", resources: "无配套资源", detail: "适合在正式开发前验证交互问题。近 30 天未使用不代表无效，只用于帮助判断维护优先级。" }
+  { id: "browser-control", icon: "browser", name: "浏览器控制", tech: "browser-control", description: "在已有登录状态中打开页面、点击、输入并检查结果。", status: "attention", statusLabel: "文件变化，需检查", usage: 17, type: "research", typeLabel: "研究", resources: "4 个配套文件", detail: "适合需要在真实网页中核对状态、执行连续操作或完成可见验收的任务。文件内容发生变化后，过去的检查记录会自动失效。" },
+  { id: "pdf", icon: "document", name: "PDF 制作与校验", tech: "pdf", description: "读取、创建、填写并渲染校验 PDF，确保内容和版式可用。", status: "healthy", statusLabel: "文件检查通过", usage: 8, type: "document", typeLabel: "文档", resources: "3 个配套文件", detail: "适合需要生成、修改或视觉检查 PDF 的任务；交付前会把页面渲染成图片复核。" },
+  { id: "frontend", icon: "layout", name: "前端界面工程", tech: "frontend-ui-engineering", description: "把界面方案实现为响应式、可访问、可交互的产品页面。", status: "healthy", statusLabel: "文件检查通过", usage: 12, type: "design", typeLabel: "设计", resources: "2 个配套文件", detail: "适合产品页面、组件和交互实现，强调响应式、键盘可用性和真实反馈。" },
+  { id: "research", icon: "research", name: "客户研究", tech: "customer-research", description: "整理访谈、评价和社区反馈，提炼用户问题与决策线索。", status: "healthy", statusLabel: "文件检查通过", usage: 5, type: "research", typeLabel: "研究", resources: "5 个配套文件", detail: "适合分析访谈记录、评论、支持工单或设计调研方案，不会把单条反馈直接当成普遍结论。" },
+  { id: "slides", icon: "slides", name: "演示文稿制作", tech: "presentations", description: "创建、修改并逐页检查演示文稿，保证内容与视觉交付质量。", status: "healthy", statusLabel: "文件检查通过", usage: 3, type: "document", typeLabel: "文档", resources: "6 个配套文件", detail: "适合 PowerPoint 或 Slides 的内容、版式和视觉交付，并提供逐页渲染检查。" },
+  { id: "prototype", icon: "prototype", name: "交互原型验证", tech: "prototype", description: "用可点击原型快速验证页面结构、状态和关键操作是否合理。", status: "healthy", statusLabel: "文件检查通过", usage: 0, type: "design", typeLabel: "设计", resources: "无配套资源", detail: "适合在正式开发前验证交互问题。近 30 天未使用不代表无效，只用于帮助判断维护优先级。" }
 ];
 
 const tips = [
@@ -173,7 +200,16 @@ const tips = [
   { id: "counterexample", topic: "review", topicLabel: "验收纠错", state: "mastered", stateLabel: "已掌握", score: 90, title: "同时给正例和反例", description: "说明什么算正确，也说明最容易被误解成什么，减少边界漂移。", example: "正例：高质量新技巧进入技巧库；反例：匿名提示词合集进入维护待办。", sources: ["Anthropic", "OpenAI"], evidence: "2 个一手来源 · 仍在维护" }
 ];
 
-const state = { route: "overview", maintenanceTab: "decide", removedSkills: new Set(), tipStates: new Map(tips.map((tip) => [tip.id, tip.state])) };
+const state = {
+  route: "overview",
+  maintenanceTab: "decide",
+  removedSkills: new Set(),
+  ignoredRecommendations: new Set(),
+  completedActions: new Set(),
+  ruleReviewed: false,
+  skillInstalled: false,
+  tipStates: new Map(tips.map((tip) => [tip.id, tip.state]))
+};
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const esc = (value) => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
@@ -236,7 +272,26 @@ function renderSkills() {
   $("#skillResultCount").textContent = `显示 ${visible.length} / ${skills.length - state.removedSkills.size} 项 · 数据仅用于公开演示`;
   $("#skillEmpty").hidden = visible.length > 0;
   $("#publicSkillGrid").hidden = visible.length === 0;
-  $("#publicSkillGrid").innerHTML = visible.map((skill) => `<article class="skill-card" data-skill-id="${esc(skill.id)}"><div class="skill-top"><span class="skill-avatar">${esc(skill.initials)}</span><span class="skill-state ${skill.status === "attention" ? "attention" : ""}">${esc(skill.statusLabel)}</span></div><h2>${esc(skill.name)}</h2><code>${esc(skill.tech)}</code><p>${esc(skill.description)}</p><div class="skill-meta"><span>近 30 天调用</span><strong>${skill.usage} 次</strong></div><div class="skill-actions"><button class="btn" data-skill-detail="${esc(skill.id)}">查看详情</button>${skill.status === "attention" ? `<button class="btn" data-skill-check="${esc(skill.id)}">重新检查</button>` : ""}<button class="text-link danger" data-skill-remove="${esc(skill.id)}">删除</button></div></article>`).join("");
+  $("#publicSkillGrid").innerHTML = visible.map((skill) => `<article class="skill-card" data-skill-id="${esc(skill.id)}"><div class="skill-top"><span class="skill-avatar" aria-hidden="true">${icon(skill.icon)}</span><span class="skill-state ${skill.status === "attention" ? "attention" : ""}">${icon(skill.status === "attention" ? "refresh" : "check")}<span>${esc(skill.statusLabel)}</span></span></div><h2>${esc(skill.name)}</h2><code>${esc(skill.tech)}</code><p>${esc(skill.description)}</p><div class="skill-meta"><span>近 30 天调用</span><strong>${skill.usage} 次</strong></div><div class="skill-actions"><button class="btn" data-skill-detail="${esc(skill.id)}">查看详情</button>${skill.status === "attention" ? `<button class="btn" data-skill-check="${esc(skill.id)}">重新检查</button>` : ""}<button class="text-link danger" data-skill-remove="${esc(skill.id)}">删除</button></div></article>`).join("");
+}
+
+function syncSkillQualityState() {
+  const activeSkills = skills.filter((skill) => !state.removedSkills.has(skill.id));
+  const attentionCount = activeSkills.filter((skill) => skill.status === "attention").length;
+  const passed = activeSkills.length - attentionCount;
+  const allClear = attentionCount === 0;
+  $("#skillQualityTitle").textContent = allClear ? `${activeSkills.length} 项重点能力均已完成文件检查` : `${activeSkills.length} 项重点能力中，${attentionCount} 项需要处理`;
+  $("#skillQualitySummary").textContent = `说明完整 ${activeSkills.length} / ${activeSkills.length} · 文件检查通过 ${passed} / ${activeSkills.length} · 实际效果按需验证`;
+  $("#skillQualityState").textContent = allClear ? "全部通过" : "需要处理";
+  $("#skillQualityState").className = `state-pill ${allClear ? "success" : "warning"}`;
+  $("#skillQualityMeter").setAttribute("aria-valuemax", String(activeSkills.length));
+  $("#skillQualityMeter").setAttribute("aria-valuenow", String(passed));
+  $("#skillQualityMeter").style.setProperty("--quality-progress", `${activeSkills.length ? (passed / activeSkills.length) * 100 : 100}%`);
+  $("#showQualityIssue").hidden = allClear;
+  $("#skillQualityClear").hidden = !allClear;
+  const overview = $("#overviewSkillStatus");
+  $("strong", overview).textContent = `${passed} / ${activeSkills.length}`;
+  $("em", overview).textContent = allClear ? "文件检查全部通过" : `${attentionCount} 项文件变化待检查`;
 }
 
 function renderTips() {
@@ -293,6 +348,15 @@ function checkSkill(id) {
     target.innerHTML = `<strong>检查完成</strong><br>4 / 4 项通过。该结果仅证明当前文件完整，不等于实际任务效果。`;
     const meter = $(".drawer-body .quality-meter");
     if (meter) { meter.setAttribute("aria-valuenow", "100"); meter.classList.add("is-complete"); }
+    $("#drawerEyebrow").textContent = "检查完成";
+    $("#drawerTitle").textContent = `${skill.name} 已通过文件检查`;
+    skill.status = "healthy";
+    skill.statusLabel = "文件检查通过";
+    skill.detail = `${skill.detail.replace(/文件内容发生变化后，过去的检查记录会自动失效。?$/u, "")} 当前文件已重新检查通过；以后只有文件再次变化时才会重新提醒。`.trim();
+    renderSkills();
+    syncSkillQualityState();
+    const section = target.closest(".drawer-section");
+    if (section) section.insertAdjacentHTML("afterend", `<div class="drawer-actions check-complete-actions"><button class="btn btn-primary" data-close-drawer>完成</button><button class="btn" data-skill-detail="${esc(skill.id)}">查看更新后的详情</button></div>`);
     showToast("文件检查完成：4 / 4 项通过", "success");
   }, 900);
 }
@@ -325,6 +389,61 @@ function toggleInfo(open) {
 
 function installStep(step) {
   $$(".stepper li").forEach((item, index) => item.classList.toggle("is-active", index <= step));
+}
+
+function pendingDecisionCount() {
+  return Number(!state.skillInstalled && !state.ignoredRecommendations.has("recommendation-visual"))
+    + Number(!state.ruleReviewed && !state.ignoredRecommendations.has("recommendation-rule"));
+}
+
+function recommendationIsPending(card) {
+  if (!card) return false;
+  if (state.ignoredRecommendations.has(card.id)) return false;
+  if (card.id === "recommendation-visual") return !state.skillInstalled;
+  if (card.id === "recommendation-rule") return !state.ruleReviewed;
+  return true;
+}
+
+function applyRecommendationFilter() {
+  const filter = $("#recommendationFilter").value;
+  $$("#recommendationList [data-kind]").forEach((card) => {
+    const matchesFilter = filter === "all" || card.dataset.kind === filter;
+    card.hidden = !recommendationIsPending(card) || !matchesFilter;
+  });
+}
+
+function addCompletionRecord(id, title, description, route) {
+  if (state.completedActions.has(id)) return;
+  state.completedActions.add(id);
+  const record = document.createElement("article");
+  record.dataset.completionId = id;
+  record.innerHTML = `<span class="result-icon success">${icon("check")}</span><div><strong>${esc(title)}</strong><p>${esc(description)}</p><time>刚刚</time></div><button class="btn" data-route="${esc(route)}">查看结果</button>`;
+  $("#completionTimeline").prepend(record);
+}
+
+function syncTaskState() {
+  const count = pendingDecisionCount();
+  $("#maintenanceNavBadge").textContent = String(count);
+  $("#maintenanceNavBadge").hidden = count === 0;
+  $("#decisionCount").textContent = String(count);
+  $("#decisionCount").hidden = count === 0;
+  $("#todayTitle").textContent = count ? `有 ${count} 项需要判断` : "当前事项已处理完";
+  $("#todayHint").textContent = count ? "先处理会影响规则与能力判断的事项。" : "完成结果已记录，之后只在内容变化时重新提醒。";
+  $("#overviewRuleTask").hidden = state.ruleReviewed || state.ignoredRecommendations.has("recommendation-rule");
+  $("#overviewSkillTask").hidden = state.skillInstalled || state.ignoredRecommendations.has("recommendation-visual");
+  $("#decisionEmpty").hidden = count !== 0;
+  $("#overviewRecommendation").hidden = state.skillInstalled || state.ignoredRecommendations.has("recommendation-visual");
+  $("#overviewRecommendationCount").firstChild.textContent = `查看全部 ${count} 条 `;
+  applyRecommendationFilter();
+
+  if (state.ruleReviewed) {
+    $("#globalRuleState").textContent = "已复核";
+    $("#globalRuleState").className = "state-pill success";
+    $("#openRuleReview").hidden = true;
+    const status = $("#overviewRuleStatus");
+    $("strong", status).textContent = "2 / 2";
+    $("em", status).textContent = "全部规则已复核";
+  }
 }
 
 function beginInstall() {
@@ -365,7 +484,7 @@ document.addEventListener("click", (event) => {
   const remove = event.target.closest("[data-skill-remove], [data-drawer-remove]");
   if (remove) { askRemoveSkill(remove.dataset.skillRemove || remove.dataset.drawerRemove); return; }
   const confirmRemove = event.target.closest("[data-confirm-remove]");
-  if (confirmRemove) { state.removedSkills.add(confirmRemove.dataset.confirmRemove); closeDrawer(); renderSkills(); showToast("演示中已移除，刷新页面即可恢复", "success"); return; }
+  if (confirmRemove) { state.removedSkills.add(confirmRemove.dataset.confirmRemove); closeDrawer(); renderSkills(); syncSkillQualityState(); showToast("演示中已移除，刷新页面即可恢复", "success"); return; }
   if (event.target.closest("[data-close-drawer]")) { closeDrawer(); return; }
   const check = event.target.closest("[data-skill-check], [data-drawer-check]");
   if (check) { checkSkill(check.dataset.skillCheck || check.dataset.drawerCheck); return; }
@@ -374,7 +493,7 @@ document.addEventListener("click", (event) => {
   const masterTip = event.target.closest("[data-tip-master]");
   if (masterTip) { const id = masterTip.dataset.tipMaster; state.tipStates.set(id, state.tipStates.get(id) === "mastered" ? "new" : "mastered"); renderTips(); showToast(state.tipStates.get(id) === "mastered" ? "已标记为掌握" : "已恢复为新发现"); return; }
   const ignore = event.target.closest("[data-ignore]");
-  if (ignore) { const card = document.getElementById(ignore.dataset.ignore); card.hidden = true; showToast("已移出当前待办，可在完成与忽略中恢复"); return; }
+  if (ignore) { state.ignoredRecommendations.add(ignore.dataset.ignore); syncTaskState(); showToast("已移出当前待办，不再占用待决定数量"); return; }
   const tool = event.target.closest("[data-demo-tool]");
   if (tool) { openDrawer("二级维护工具", tool.dataset.demoTool, `<section class="drawer-section"><h3>什么时候需要它</h3><p>只有在安装、检查、查看历史结果、恢复备份或排查本地环境时才需要进入。它不会占用一级导航。</p></section><section class="drawer-section"><h3>公开演示边界</h3><p>这里展示工具定位，不连接访客设备。真实产品中的每次写入都有明确对象、进度和完成结果。</p></section>`); return; }
 });
@@ -395,11 +514,23 @@ $("#infoModal").addEventListener("click", (event) => { if (event.target === $("#
 $("#approveSkill").addEventListener("click", beginInstall);
 $("#closeInstall").addEventListener("click", () => { $("#inlineInstall").hidden = true; });
 $("#confirmDemoInstall").addEventListener("click", completeDemoInstall);
-$("#inlineInstall").addEventListener("click", (event) => { if (event.target.closest("#finishDemoInstall")) { $("#inlineInstall").hidden = true; showToast("安装流程已完成，建议已进入处理记录"); } });
-$("#recommendationFilter").addEventListener("change", (event) => { $$("#recommendationList [data-kind]").forEach((card) => { card.hidden = event.target.value !== "all" && card.dataset.kind !== event.target.value; }); });
+$("#inlineInstall").addEventListener("click", (event) => {
+  if (!event.target.closest("#finishDemoInstall")) return;
+  state.skillInstalled = true;
+  addCompletionRecord("skill-installed", "视觉风格系统已安装", "安装流程和文件检查已完成，原建议已从待办移除。", "skills");
+  syncTaskState();
+  showToast("安装完成，已从待办移除并记入处理记录", "success");
+});
+$("#recommendationFilter").addEventListener("change", applyRecommendationFilter);
 $("#openRuleReview").addEventListener("click", () => { $("#ruleReview").hidden = false; $("#openRuleReview").hidden = true; });
 $("#closeRuleReview").addEventListener("click", () => { $("#ruleReview").hidden = true; $("#openRuleReview").hidden = false; });
-$("#acceptRule").addEventListener("click", () => { $("#ruleReview").innerHTML = `<div class="last-check">${icon("check")}<span><strong>已完成复核</strong><small>演示未修改任何真实规则；结果已在当前页面保留。</small></span></div>`; showToast("规则复核已完成", "success"); });
+$("#acceptRule").addEventListener("click", () => {
+  state.ruleReviewed = true;
+  $("#ruleReview").innerHTML = `<div class="last-check">${icon("check")}<span><strong>已完成复核</strong><small>当前卡片、总览和待办数量已同步；内容变化后才会再次提醒。</small></span></div>`;
+  addCompletionRecord("rule-reviewed", "规则复核已完成", "当前版本已确认，相关建议已从待办移除。", "rules");
+  syncTaskState();
+  showToast("规则复核已完成，所有状态已同步", "success");
+});
 $("#adjustRule").addEventListener("click", () => showToast("真实产品会先生成可编辑草稿，再次确认后才写入"));
 $("#showQualityIssue").addEventListener("click", () => checkSkill("browser-control"));
 $("#toggleMoreFilters").addEventListener("click", () => { const open = $("#moreFilters").hidden; $("#moreFilters").hidden = !open; $("#toggleMoreFilters").setAttribute("aria-expanded", String(open)); });
@@ -415,7 +546,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderSkills();
+syncSkillQualityState();
 renderTips();
+syncTaskState();
 setMaintenanceTab("decide");
 showRoute(currentRouteFromHash(), { preserveScroll: true });
 </script>
